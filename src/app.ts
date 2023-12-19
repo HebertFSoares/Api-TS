@@ -1,6 +1,7 @@
 import express from "express"
 import config from "config"
 import db from "../config/db"
+import Logger from "../config/logger"
 
 const app = express()
 
@@ -12,5 +13,5 @@ const port = config.get<number>("port")
 app.listen(port, async () =>{
   await db();
 
-  console.log(`Aplicação na porta ${port}`)
+  Logger.info(`Aplicação na porta ${port}`)
 })
