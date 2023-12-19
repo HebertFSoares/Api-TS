@@ -1,9 +1,6 @@
 import express from "express"
 import config from "config"
-import db from "../config/db"
-import Logger from "../config/logger"
 import router from "./routes"
-
 const app = express()
 
 // Json
