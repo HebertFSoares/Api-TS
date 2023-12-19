@@ -2,6 +2,9 @@ require("dotenv").config();
 import express from "express"
 import config from "config"
 import router from "./routes"
+import Logger from "../config/logger";
+import db from "../config/db"
+
 const app = express()
 
 // Json
