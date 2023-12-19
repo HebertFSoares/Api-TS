@@ -5,18 +5,23 @@ import router from "./routes"
 import Logger from "../config/logger";
 import db from "../config/db"
 
-const app = express()
+// Middlewares
+import morganMiddleware from "./middleware/morganmiddleware";
+
+const app = express();
 
 // Json
-app.use(express.json())
+app.use(express.json());
 
-app.use("/api/", router)
+app.use(morganMiddleware);
+
+app.use("/api/", router);
 
 // app port
-const port = config.get<number>("port")
+const port = config.get<number>("port");
 
 app.listen(port, async () => {
   await db();
 
-  Logger.info(`Aplicação na porta ${port}`)
+  Logger.info(`Aplicação na porta ${port}`);
 })
